@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mongoose Flights</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h2>Flight Details</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Airline</th>
+          <th>Flight Number</th>
+          <th>Departs</th>
+          <th>Airport</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td><%= flight.airline %></td>
+            <td><%= flight.flightNo %></td>
+            <td><%= flight.departs %></td>
+            <td><%= flight.airport %></td>
+            <td><%= flight.destinations.airport %></td>
+            <td><%= flight.destinations.arrival %></td>
+            <form action="/flights/<%= flight._id %>?_method=DELETE"
+                id="delete-form" method="POST">
+                <button type="submit">DELETE</button>
+              </form>
+
+          </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
