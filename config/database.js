@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/flights1',
+mongoose.connect('mongodb://localhost/flights2',
     {useNewUrlParser: true}
 );
 

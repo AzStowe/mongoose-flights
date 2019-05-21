@@ -32,10 +32,13 @@ function create(req, res) {
   });
 };
 
-function show(req, res, next) {
+function show(req, res) {
   Flight.findById(req.params.id, function (err, flight) {
     if (err) return res.redirect('/flights');
     Ticket.find({flight: flight._id}, function(err2, tickets) {
+      if (err2) {
+        res.send(error)
+      }
       res.render('flights/show', { flight, tickets });
     });
   });
@@ -49,18 +52,20 @@ function deleteFlight(req, res) {
   });
 };
 
-function addDestination(req, res, next) {
+function addDestination(req, res) {
   Flight.findById(req.params.id, function(err, flight) {
     flight.destinations.push(req.body);
-    flight.save();
-    console.log(flight);
-    res.render('flights/show', { flight });
+    flight.save()
+    .then(result => console.log(' ===> ===> success this item was saved',result))
+    .catch(error => res.send(error))
+
+    res.redirect(`/flights/${req.params.id}`);
   });
 }
 
 
 
-function addTicket(req, res, next) {
+function addTicket(req, res) {
   var seat = req.body.seat;
   var price = req.body.price;
   var flight = req.params.id;
