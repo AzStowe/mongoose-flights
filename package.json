@@ -1,9 +1,9 @@
 {
-  "name": "express-flights",
+  "name": "mongoose-flights",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -13,7 +13,7 @@
     "http-errors": "~1.6.3",
     "method": "^2.0.0",
     "method-override": "^3.0.0",
-    "mongoose": "^5.5.8",
+    "mongoose": "^5.5.10",
     "morgan": "~1.9.1",
     "override": "0.0.1"
   }
